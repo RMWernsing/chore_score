@@ -52,4 +52,18 @@ public class ChoresController : ControllerBase
       return BadRequest(error.Message);
     }
   }
+
+  [HttpPost]
+  public ActionResult<Chore> CreateFrog([FromBody] Chore choreData)
+  {
+    try
+    {
+      Chore chore = _choresService.CreateChore(choreData);
+      return Ok(chore);
+    }
+    catch (Exception error)
+    {
+      return BadRequest(error.Message);
+    }
+  }
 }

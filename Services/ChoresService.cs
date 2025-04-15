@@ -31,4 +31,10 @@ public class ChoresService
   {
     _repository.DeleteChore(choreId);
   }
+
+  internal Chore CreateChore(Chore choreData)
+  {
+    Chore chore = _repository.CreateChore(choreData);
+    return chore;
+  }
 }

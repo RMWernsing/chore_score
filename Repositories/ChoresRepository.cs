@@ -43,4 +43,17 @@ public class ChoresRepository
     }
 
   }
+
+  internal Chore CreateChore(Chore choreData)
+  {
+    string sql = @"
+    INSERT INTO 
+    chores(name, description, is_complete) 
+    VALUES(@Name, @Description, @IsComplete);
+
+    SELECT * FROM chores WHERE id = LAST_INSERT_ID();";
+
+    Chore chore = _db.Query<Chore>(sql, choreData).SingleOrDefault();
+    return chore;
+  }
 }
