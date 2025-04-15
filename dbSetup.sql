@@ -10,7 +10,10 @@ CREATE TABLE IF NOT EXISTS accounts(
 CREATE TABLE chores(
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
-  description VARCHAR(255),
-  isComplete BOOLEAN DEFAULT false
-  
+  description TEXT(2000),
+  is_complete BOOLEAN DEFAULT false
 )
+
+INSERT INTO chores(name, description, is_complete) VALUES('Feed the dogs', 'Make sure they get all their medicine', false)
+
+SELECT * FROM chores;
