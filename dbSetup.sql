@@ -17,3 +17,4 @@ CREATE TABLE chores(
 INSERT INTO chores(name, description, is_complete) VALUES('Feed the dogs', 'Make sure they get all their medicine', false)
 
 SELECT * FROM chores;
+SELECT * FROM chores WHERE id = 1;

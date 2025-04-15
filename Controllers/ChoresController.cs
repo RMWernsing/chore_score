@@ -17,7 +17,35 @@ public class ChoresController : ControllerBase
     try
     {
       List<Chore> chores = _choresService.GetAllChores();
-      return chores;
+      return Ok(chores);
+    }
+    catch (Exception error)
+    {
+      return BadRequest(error.Message);
+    }
+  }
+
+  [HttpGet("{choreId}")]
+  public ActionResult<Chore> GetChoreById(int choreId)
+  {
+    try
+    {
+      Chore chore = _choresService.GetChoreById(choreId);
+      return Ok(chore);
+    }
+    catch (Exception error)
+    {
+      return BadRequest(error.Message);
+    }
+  }
+
+  [HttpDelete("{choreId}")]
+  public ActionResult<string> DeleteChore(int choreId)
+  {
+    try
+    {
+      _choresService.DeleteChore(choreId);
+      return Ok("Chore was deleted!");
     }
     catch (Exception error)
     {
